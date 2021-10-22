@@ -1,0 +1,1251 @@
+[gd_scene load_steps=59 format=2]
+
+[ext_resource path="res://Score.gd" type="Script" id=1]
+[ext_resource path="res://Omega.png" type="Texture" id=2]
+[ext_resource path="res://sounds/Button.wav" type="AudioStream" id=3]
+[ext_resource path="res://Xolonium-Regular.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://Tick.gd" type="Script" id=5]
+[ext_resource path="res://Solar Panel 2.png" type="Texture" id=6]
+[ext_resource path="res://Background day.png" type="Texture" id=7]
+[ext_resource path="res://SmoothPixel/SmoothPixel.tres" type="Material" id=8]
+[ext_resource path="res://Upgrades Button.png" type="Texture" id=9]
+[ext_resource path="res://Upgrades Menu.png" type="Texture" id=10]
+[ext_resource path="res://MoveMenu.gd" type="Script" id=11]
+[ext_resource path="res://Lunar Panels.png" type="Texture" id=12]
+[ext_resource path="res://Lemon Battery.png" type="Texture" id=13]
+[ext_resource path="res://WaterMil.png" type="Texture" id=14]
+[ext_resource path="res://WindMill.png" type="Texture" id=15]
+[ext_resource path="res://defaulticon.png" type="Texture" id=16]
+[ext_resource path="res://sounds/click.wav" type="AudioStream" id=17]
+[ext_resource path="res://more complex tree.png" type="Texture" id=18]
+[ext_resource path="res://trash.wav" type="AudioStream" id=19]
+[ext_resource path="res://Buttonanim.png" type="Texture" id=20]
+[ext_resource path="res://The Void.png" type="Texture" id=21]
+[ext_resource path="res://empty.png" type="Texture" id=22]
+[ext_resource path="res://Background night.png" type="Texture" id=23]
+[ext_resource path="res://sounds/wave.wav" type="AudioStream" id=24]
+[ext_resource path="res://text window.png" type="Texture" id=25]
+[ext_resource path="res://mute.png" type="Texture" id=26]
+[ext_resource path="res://freeplay.png" type="Texture" id=27]
+
+[sub_resource type="Animation" id=29]
+resource_name = "Objective"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Objectives/startobjective:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 2.5, 3 ),
+"transitions": PoolRealArray( 0.203063, 1, 0.203063, 1 ),
+"update": 0,
+"values": [ Vector2( 640, -1800 ), Vector2( 640, 360 ), Vector2( 640, 360 ), Vector2( 640, -1800 ) ]
+}
+
+[sub_resource type="Animation" id=30]
+resource_name = "endscreen"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Objectives/endobjective:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 0.203063, 1 ),
+"update": 0,
+"values": [ Vector2( 640, -1800 ), Vector2( 640, -1080 ) ]
+}
+
+[sub_resource type="Animation" id=1]
+resource_name = "gameend"
+length = 2.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Camera2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1.5, 2.5 ),
+"transitions": PoolRealArray( 3.24901, 3.249, 0.999999 ),
+"update": 0,
+"values": [ Vector2( 640, 360 ), Vector2( 640, -1080 ), Vector2( 640, -1080 ) ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath("BadMusic")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "stop"
+} ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath("tidalwave")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 1.5 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ 0.0 ],
+"method": "play"
+} ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "gamestart"
+length = 2.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Camera2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 2.5 ),
+"transitions": PoolRealArray( 0.999999, 3.249, 1 ),
+"update": 0,
+"values": [ Vector2( 640, -1080 ), Vector2( 640, -1080 ), Vector2( 640, 360 ) ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath("BadMusic")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 2.5 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ 0.0 ],
+"method": "play"
+} ]
+}
+
+[sub_resource type="StyleBoxEmpty" id=6]
+
+[sub_resource type="Animation" id=7]
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ Rect2( 80, 0, 80, 90 ), Rect2( 0, 0, 80, 90 ) ]
+}
+
+[sub_resource type="DynamicFont" id=8]
+size = 64
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+use_filter = true
+font_data = ExtResource( 4 )
+
+[sub_resource type="Animation" id=9]
+length = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath("Upgrades:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1172, -6 ), Vector2( 540, -6 ) ]
+}
+
+[sub_resource type="Animation" id=10]
+length = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath("Upgrades:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 540, -6 ), Vector2( 1172, -6 ) ]
+}
+
+[sub_resource type="StyleBoxEmpty" id=11]
+
+[sub_resource type="StyleBoxEmpty" id=12]
+
+[sub_resource type="DynamicFont" id=13]
+size = 48
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=14]
+size = 64
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+use_filter = true
+font_data = ExtResource( 4 )
+
+[sub_resource type="Animation" id=15]
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("lemonicon:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.75, 0.75 ), Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="StyleBoxEmpty" id=16]
+
+[sub_resource type="Animation" id=17]
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("treeicon:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.75, 0.75 ), Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="StyleBoxEmpty" id=18]
+
+[sub_resource type="Animation" id=19]
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("windicon:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.75, 0.75 ), Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="StyleBoxEmpty" id=20]
+
+[sub_resource type="Animation" id=21]
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("watericon:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.75, 0.75 ), Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="StyleBoxEmpty" id=22]
+
+[sub_resource type="Animation" id=23]
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("solaricon:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.75, 0.75 ), Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=24]
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("lunaricon:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.75, 0.75 ), Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=25]
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("omegaicon:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.75, 0.75 ), Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=26]
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("voidicon:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.75, 0.75 ), Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="DynamicFont" id=27]
+size = 64
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+use_filter = true
+font_data = ExtResource( 4 )
+
+[sub_resource type="StyleBoxEmpty" id=28]
+
+[sub_resource type="DynamicFont" id=3]
+size = 64
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 4 )
+
+[sub_resource type="StyleBoxEmpty" id=4]
+
+[sub_resource type="DynamicFont" id=5]
+size = 64
+outline_size = 4
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=31]
+size = 256
+outline_size = 16
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 4 )
+
+[node name="Game" type="Node"]
+script = ExtResource( 1 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 640, 360 )
+current = true
+
+[node name="Backgroundnight" type="Sprite" parent="."]
+material = ExtResource( 8 )
+position = Vector2( 640, -360 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 23 )
+
+[node name="Background" type="Sprite" parent="."]
+material = ExtResource( 8 )
+position = Vector2( 640, -360 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 7 )
+
+[node name="camanim" type="AnimationPlayer" parent="."]
+anims/Objective = SubResource( 29 )
+anims/endscreen = SubResource( 30 )
+anims/gameend = SubResource( 1 )
+anims/gamestart = SubResource( 2 )
+
+[node name="Button" type="Button" parent="."]
+material = ExtResource( 8 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -90.0
+margin_top = -85.0
+margin_right = 2.0
+margin_bottom = 11.0
+rect_scale = Vector2( 2, 2 )
+custom_styles/focus = SubResource( 6 )
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="energymanual" type="AudioStreamPlayer" parent="Button"]
+stream = ExtResource( 17 )
+
+[node name="Sprite" type="Sprite" parent="Button"]
+material = ExtResource( 8 )
+position = Vector2( 46, 49 )
+texture = ExtResource( 20 )
+flip_h = true
+region_enabled = true
+region_rect = Rect2( 0, 0, 80, 90 )
+
+[node name="buttonanims" type="AnimationPlayer" parent="Button"]
+anims/pressed = SubResource( 7 )
+
+[node name="Label" type="Label" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -82.0
+margin_top = 70.0
+margin_right = 82.0
+margin_bottom = 163.0
+grow_horizontal = 2
+grow_vertical = 2
+custom_fonts/font = SubResource( 8 )
+text = "0"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="energy" type="Label" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -82.0
+margin_right = 82.0
+margin_bottom = 93.0
+grow_horizontal = 2
+grow_vertical = 2
+custom_fonts/font = SubResource( 8 )
+text = "Energy Produced:"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Menus" type="Node" parent="."]
+script = ExtResource( 11 )
+
+[node name="menuanims" type="AnimationPlayer" parent="Menus"]
+anims/Pressed = SubResource( 9 )
+anims/Retract = SubResource( 10 )
+
+[node name="Upgrades" type="Button" parent="Menus"]
+material = ExtResource( 8 )
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -108.0
+margin_top = -6.0
+margin_right = -47.9998
+margin_bottom = 48.0
+rect_scale = Vector2( 2, 2 )
+custom_styles/focus = SubResource( 11 )
+icon = ExtResource( 9 )
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="upgradesound" type="AudioStreamPlayer" parent="Menus/Upgrades"]
+stream = ExtResource( 3 )
+
+[node name="Sprite" type="Sprite" parent="Menus/Upgrades"]
+material = ExtResource( 8 )
+position = Vector2( 374, 183 )
+texture = ExtResource( 10 )
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Menus/Upgrades"]
+margin_left = 54.0
+margin_top = 2.5
+margin_right = 525.0
+margin_bottom = 339.5
+rect_clip_content = false
+scroll_horizontal_enabled = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Menus/Upgrades/ScrollContainer"]
+margin_right = 60.0
+margin_bottom = 607.0
+mouse_filter = 0
+custom_constants/separation = 25
+
+[node name="lemonbattery" type="Button" parent="Menus/Upgrades/ScrollContainer/VBoxContainer"]
+material = ExtResource( 8 )
+margin_right = 60.0
+margin_bottom = 54.0
+custom_styles/focus = SubResource( 12 )
+icon = ExtResource( 22 )
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="lemonbatteryname" type="Label" parent="Menus/Upgrades/ScrollContainer/VBoxContainer/lemonbattery"]
+margin_left = 56.5
+margin_right = 436.5
+margin_bottom = 78.0
+rect_scale = Vector2( 0.25, 0.25 )
+custom_fonts/font = SubResource( 13 )
+text = "Lemon Battery"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="lemonbatterydesc" type="Label" parent="Menus/Upgrades/ScrollContainer/VBoxContainer/lemonbattery"]
+margin_left = 57.0
+margin_top = 15.0
+margin_right = 772.0
+margin_bottom = 174.0
+rect_scale = Vector2( 0.25, 0.25 )
+custom_fonts/font = SubResource( 13 )
+text = "Energy from a lemon?
+not very efficient
+Produces: 1 per second"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="lemonbatterycost" type="Label" parent="Menus/Upgrades/ScrollContainer/VBoxContainer/lemonbattery"]
+margin_left = 260.0
+margin_top = 16.0
+margin_right = 413.0
+margin_bottom = 94.0
+rect_scale = Vector2( 0.25, 0.25 )
+custom_fonts/font = SubResource( 13 )
+text = "Cost"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="lemonbatteryprice" type="Label" parent="Menus/Upgrades/ScrollContainer/VBoxContainer/lemonbattery"]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = 170.0
+margin_top = 8.5
+margin_right = 291.0
+margin_bottom = 86.5
+rect_scale = Vector2( 0.25, 0.25 )
+custom_fonts/font = SubResource( 14 )
+text = "10"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="lemonanim" type="AnimationPlayer" parent="Menus/Upgrades/ScrollContainer/VBoxContainer/lemonbattery"]
+anims/pressed = SubResource( 15 )
+
+[node name="lemonicon" type="Sprite" parent="Menus/Upgrades/ScrollContainer/VBoxContainer/lemonbattery"]
+material = ExtResource( 8 )
+position = Vector2( 30, 27 )
+texture = ExtResource( 13 )
+
+[node name="Tree" type="Button" parent="Menus/Upgrades/ScrollContainer/VBoxContainer"]
+material = ExtResource( 8 )
+margin_top = 79.0
+margin_right = 60.0
+margin_bottom = 133.0
+custom_styles/focus = SubResource( 16 )
+icon = ExtResource( 22 )
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="treename" type="Label" parent="Menus/Upgrades/ScrollContainer/VBoxContainer/Tree"]
+margin_left = 56.5
+margin_right = 436.5
+margin_bottom = 78.0
+rect_scale = Vector2( 0.25, 0.25 )
+custom_fonts/font = SubResource( 13 )
+text = "Tree Sapling"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="treedesc" type="Label" parent="Menus/Upgrades/ScrollContainer/VBoxContainer/Tree"]
+margin_left = 57.0
+margin_top = 15.0
+margin_right = 772.0
+margin_bottom = 174.0
+rect_scale = Vector2( 0.25, 0.25 )
+custom_fonts/font = SubResource( 13 )
+text = "Helps the environment
+generates neutral energy
+Produces: 10 per second"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="treecost" type="Label" parent="Menus/Upgrades/ScrollContainer/VBoxContainer/Tree"]
+margin_left = 260.0
+margin_top = 16.0
+margin_right = 413.0
+margin_bottom = 94.0
+rect_scale = Vector2( 0.25, 0.25 )
+custom_fonts/font = SubResource( 13 )
+text = "Cost"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="treeprice" type="Label" parent="Menus/Upgrades/ScrollContainer/VBoxContainer/Tree"]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = 170.0
+margin_top = 8.5
+margin_right = 291.0
+margin_bottom = 86.5
+rect_scale = Vector2( 0.25, 0.25 )
+custom_fonts/font = SubResource( 14 )
+text = "10"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="treeanim" type="AnimationPlayer" parent="Menus/Upgrades/ScrollContainer/VBoxContainer/Tree"]
+anims/pressed = SubResource( 17 )
+
+[node name="treeicon" type="Sprite" parent="Menus/Upgrades/ScrollContainer/VBoxContainer/Tree"]
+material = ExtResource( 8 )
+position = Vector2( 30, 27 )
+texture = ExtResource( 18 )
+
+[node name="Windmil" type="Button" parent="Menus/Upgrades/ScrollContainer/VBoxContainer"]
+material = ExtResource( 8 )
+margin_top = 158.0
+margin_right = 60.0
+margin_bottom = 212.0
+custom_styles/focus = SubResource( 18 )
+icon = ExtResource( 22 )
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="windmilname" type="Label" parent="Menus/Upgrades/ScrollContainer/VBoxContainer/Windmil"]
+margin_left = 56.5
+margin_right = 436.5
+margin_bottom = 78.0
+rect_scale = Vector2( 0.25, 0.25 )
+custom_fonts/font = SubResource( 13 )
+text = "Windmil"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="windmildesc" type="Label" parent="Menus/Upgrades/ScrollContainer/VBoxContainer/Windmil"]
+margin_left = 57.0
+margin_top = 15.0
+margin_right = 772.0
+margin_bottom = 174.0
+rect_scale = Vector2( 0.25, 0.25 )
+custom_fonts/font = SubResource( 13 )
+text = "Creates energy from
+the wind in the sky
+Produces: 100 per second"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="windmilcost" type="Label" parent="Menus/Upgrades/ScrollContainer/VBoxContainer/Windmil"]
+margin_left = 260.0
+margin_top = 16.0
+margin_right = 413.0
+margin_bottom = 94.0
+rect_scale = Vector2( 0.25, 0.25 )
+custom_fonts/font = SubResource( 13 )
+text = "Cost"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="windmilprice" type="Label" parent="Menus/Upgrades/ScrollContainer/VBoxContainer/Windmil"]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = 170.0
+margin_top = 8.5
+margin_right = 291.0
+margin_bottom = 86.5
+rect_scale = Vector2( 0.25, 0.25 )
+custom_fonts/font = SubResource( 14 )
+text = "10"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="windanim" type="AnimationPlayer" parent="Menus/Upgrades/ScrollContainer/VBoxContainer/Windmil"]
+anims/pressed = SubResource( 19 )
+
+[node name="windicon" type="Sprite" parent="Menus/Upgrades/ScrollContainer/VBoxContainer/Windmil"]
+material = ExtResource( 8 )
+position = Vector2( 30, 27 )
+texture = ExtResource( 15 )
+
+[node name="Watermil" type="Button" parent="Menus/Upgrades/ScrollContainer/VBoxContainer"]
+material = ExtResource( 8 )
+margin_top = 237.0
+margin_right = 60.0
+margin_bottom = 291.0
+custom_styles/focus = SubResource( 20 )
+icon = ExtResource( 22 )
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="watermilname" type="Label" parent="Menus/Upgrades/ScrollContainer/VBoxContainer/Watermil"]
+margin_left = 56.5
+margin_right = 436.5
+margin_bottom = 78.0
+rect_scale = Vector2( 0.25, 0.25 )
+custom_fonts/font = SubResource( 13 )
+text = "Watermil"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="watermildesc" type="Label" parent="Menus/Upgrades/ScrollContainer/VBoxContainer/Watermil"]
+margin_left = 57.0
+margin_top = 15.0
+margin_right = 772.0
+margin_bottom = 174.0
+rect_scale = Vector2( 0.25, 0.25 )
+custom_fonts/font = SubResource( 13 )
+text = "Creates energy from
+water currents in a river
+Produces: 250 per second"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="watermilcost" type="Label" parent="Menus/Upgrades/ScrollContainer/VBoxContainer/Watermil"]
+margin_left = 260.0
+margin_top = 16.0
+margin_right = 413.0
+margin_bottom = 94.0
+rect_scale = Vector2( 0.25, 0.25 )
+custom_fonts/font = SubResource( 13 )
+text = "Cost"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="watermilprice" type="Label" parent="Menus/Upgrades/ScrollContainer/VBoxContainer/Watermil"]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = 170.0
+margin_top = 8.5
+margin_right = 291.0
+margin_bottom = 86.5
+rect_scale = Vector2( 0.25, 0.25 )
+custom_fonts/font = SubResource( 14 )
+text = "10"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="wateranim" type="AnimationPlayer" parent="Menus/Upgrades/ScrollContainer/VBoxContainer/Watermil"]
+anims/pressed = SubResource( 21 )
+
+[node name="watericon" type="Sprite" parent="Menus/Upgrades/ScrollContainer/VBoxContainer/Watermil"]
+material = ExtResource( 8 )
+position = Vector2( 30, 27 )
+texture = ExtResource( 14 )
+
+[node name="Upgrade" type="Button" parent="Menus/Upgrades/ScrollContainer/VBoxContainer"]
+material = ExtResource( 8 )
+margin_top = 316.0
+margin_right = 60.0
+margin_bottom = 370.0
+custom_styles/focus = SubResource( 22 )
+icon = ExtResource( 22 )
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="solarpanelname" type="Label" parent="Menus/Upgrades/ScrollContainer/VBoxContainer/Upgrade"]
+margin_left = 56.5
+margin_right = 436.5
+margin_bottom = 78.0
+rect_scale = Vector2( 0.25, 0.25 )
+custom_fonts/font = SubResource( 13 )
+text = "Solar Panel"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="solarpaneldesc" type="Label" parent="Menus/Upgrades/ScrollContainer/VBoxContainer/Upgrade"]
+margin_left = 57.0
+margin_top = 15.0
+margin_right = 772.0
+margin_bottom = 174.0
+rect_scale = Vector2( 0.25, 0.25 )
+custom_fonts/font = SubResource( 13 )
+text = "Creates Energy using
+the power of the sun
+Produces: 500 per second"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="solarpanelcost" type="Label" parent="Menus/Upgrades/ScrollContainer/VBoxContainer/Upgrade"]
+margin_left = 260.0
+margin_top = 16.0
+margin_right = 413.0
+margin_bottom = 94.0
+rect_scale = Vector2( 0.25, 0.25 )
+custom_fonts/font = SubResource( 13 )
+text = "Cost"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="solarpanelprice" type="Label" parent="Menus/Upgrades/ScrollContainer/VBoxContainer/Upgrade"]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = 170.0
+margin_top = 9.0
+margin_right = 305.0
+margin_bottom = 87.0
+rect_scale = Vector2( 0.25, 0.25 )
+custom_fonts/font = SubResource( 14 )
+text = "100"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="solaranim" type="AnimationPlayer" parent="Menus/Upgrades/ScrollContainer/VBoxContainer/Upgrade"]
+anims/pressed = SubResource( 23 )
+
+[node name="solaricon" type="Sprite" parent="Menus/Upgrades/ScrollContainer/VBoxContainer/Upgrade"]
+material = ExtResource( 8 )
+position = Vector2( 30, 27 )
+texture = ExtResource( 6 )
+
+[node name="Lunar_Panel" type="Button" parent="Menus/Upgrades/ScrollContainer/VBoxContainer"]
+material = ExtResource( 8 )
+margin_top = 395.0
+margin_right = 60.0
+margin_bottom = 449.0
+custom_styles/focus = SubResource( 16 )
+icon = ExtResource( 22 )
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="lunarpanelname" type="Label" parent="Menus/Upgrades/ScrollContainer/VBoxContainer/Lunar_Panel"]
+margin_left = 56.5
+margin_right = 436.5
+margin_bottom = 78.0
+rect_scale = Vector2( 0.25, 0.25 )
+custom_fonts/font = SubResource( 13 )
+text = "Lunar Panel"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="lunarpaneldesc" type="Label" parent="Menus/Upgrades/ScrollContainer/VBoxContainer/Lunar_Panel"]
+margin_left = 57.0
+margin_top = 15.0
+margin_right = 772.0
+margin_bottom = 174.0
+rect_scale = Vector2( 0.25, 0.25 )
+custom_fonts/font = SubResource( 13 )
+text = "Creates energy from light
+reflection from the sun on
+the moon
+Produces: 750 per second"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="lunarpanelcost" type="Label" parent="Menus/Upgrades/ScrollContainer/VBoxContainer/Lunar_Panel"]
+margin_left = 260.0
+margin_top = 16.0
+margin_right = 413.0
+margin_bottom = 94.0
+rect_scale = Vector2( 0.25, 0.25 )
+custom_fonts/font = SubResource( 13 )
+text = "Cost"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="lunarpanelprice" type="Label" parent="Menus/Upgrades/ScrollContainer/VBoxContainer/Lunar_Panel"]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = 170.0
+margin_top = 8.5
+margin_right = 291.0
+margin_bottom = 86.5
+rect_scale = Vector2( 0.25, 0.25 )
+custom_fonts/font = SubResource( 14 )
+text = "10"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="lunaranim" type="AnimationPlayer" parent="Menus/Upgrades/ScrollContainer/VBoxContainer/Lunar_Panel"]
+anims/pressed = SubResource( 24 )
+
+[node name="lunaricon" type="Sprite" parent="Menus/Upgrades/ScrollContainer/VBoxContainer/Lunar_Panel"]
+material = ExtResource( 8 )
+position = Vector2( 30, 27 )
+texture = ExtResource( 12 )
+
+[node name="Omegapanel" type="Button" parent="Menus/Upgrades/ScrollContainer/VBoxContainer"]
+material = ExtResource( 8 )
+margin_top = 474.0
+margin_right = 60.0
+margin_bottom = 528.0
+custom_styles/focus = SubResource( 16 )
+icon = ExtResource( 22 )
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="omeganame" type="Label" parent="Menus/Upgrades/ScrollContainer/VBoxContainer/Omegapanel"]
+margin_left = 56.5
+margin_right = 436.5
+margin_bottom = 78.0
+rect_scale = Vector2( 0.25, 0.25 )
+custom_fonts/font = SubResource( 13 )
+text = "Omega Panel"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="omegadesc" type="Label" parent="Menus/Upgrades/ScrollContainer/VBoxContainer/Omegapanel"]
+margin_left = 57.0
+margin_top = 15.0
+margin_right = 772.0
+margin_bottom = 174.0
+rect_scale = Vector2( 0.25, 0.25 )
+custom_fonts/font = SubResource( 13 )
+text = "Creates energy from plasma
+that's outside the earth's
+atmosphere
+Produces: 10,000 per second"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="omegacost" type="Label" parent="Menus/Upgrades/ScrollContainer/VBoxContainer/Omegapanel"]
+margin_left = 260.0
+margin_top = 16.0
+margin_right = 413.0
+margin_bottom = 94.0
+rect_scale = Vector2( 0.25, 0.25 )
+custom_fonts/font = SubResource( 13 )
+text = "Cost"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="omegaprice" type="Label" parent="Menus/Upgrades/ScrollContainer/VBoxContainer/Omegapanel"]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = 170.0
+margin_top = 8.5
+margin_right = 485.0
+margin_bottom = 86.5
+rect_scale = Vector2( 0.25, 0.25 )
+custom_fonts/font = SubResource( 14 )
+text = "1000000"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="omegaanim" type="AnimationPlayer" parent="Menus/Upgrades/ScrollContainer/VBoxContainer/Omegapanel"]
+anims/pressed = SubResource( 25 )
+
+[node name="omegaicon" type="Sprite" parent="Menus/Upgrades/ScrollContainer/VBoxContainer/Omegapanel"]
+material = ExtResource( 8 )
+position = Vector2( 30, 27 )
+texture = ExtResource( 2 )
+
+[node name="Death" type="Button" parent="Menus/Upgrades/ScrollContainer/VBoxContainer"]
+material = ExtResource( 8 )
+margin_top = 553.0
+margin_right = 60.0
+margin_bottom = 607.0
+custom_styles/focus = SubResource( 16 )
+icon = ExtResource( 22 )
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="deathname" type="Label" parent="Menus/Upgrades/ScrollContainer/VBoxContainer/Death"]
+margin_left = 56.5
+margin_right = 436.5
+margin_bottom = 78.0
+rect_scale = Vector2( 0.25, 0.25 )
+custom_fonts/font = SubResource( 13 )
+text = "The Void"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="deathdesc" type="Label" parent="Menus/Upgrades/ScrollContainer/VBoxContainer/Death"]
+margin_left = 57.0
+margin_top = 15.0
+margin_right = 772.0
+margin_bottom = 174.0
+rect_scale = Vector2( 0.25, 0.25 )
+custom_fonts/font = SubResource( 13 )
+text = "Uses stabilized black holes to
+create massive amounts of
+energy
+Produces: 1,000,000 per second"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="deathcost" type="Label" parent="Menus/Upgrades/ScrollContainer/VBoxContainer/Death"]
+margin_left = 260.0
+margin_top = 16.0
+margin_right = 413.0
+margin_bottom = 94.0
+rect_scale = Vector2( 0.25, 0.25 )
+custom_fonts/font = SubResource( 13 )
+text = "Cost"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="deathprice" type="Label" parent="Menus/Upgrades/ScrollContainer/VBoxContainer/Death"]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = 170.0
+margin_top = 8.5
+margin_right = 440.0
+margin_bottom = 86.5
+rect_scale = Vector2( 0.25, 0.25 )
+custom_fonts/font = SubResource( 14 )
+text = "100000"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="voidanim" type="AnimationPlayer" parent="Menus/Upgrades/ScrollContainer/VBoxContainer/Death"]
+anims/pressed = SubResource( 26 )
+
+[node name="voidicon" type="Sprite" parent="Menus/Upgrades/ScrollContainer/VBoxContainer/Death"]
+material = ExtResource( 8 )
+position = Vector2( 30, 27 )
+texture = ExtResource( 21 )
+
+[node name="upgradeslabel" type="Label" parent="Menus/Upgrades"]
+margin_left = -107.0
+margin_top = 51.0
+margin_right = 215.0
+margin_bottom = 129.0
+rect_scale = Vector2( 0.5, 0.5 )
+custom_fonts/font = SubResource( 27 )
+text = "Upgrades"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Ticks" type="Timer" parent="."]
+autostart = true
+script = ExtResource( 5 )
+
+[node name="scorecheat" type="Button" parent="."]
+margin_left = -172.0
+margin_top = 30.0
+margin_right = -96.0
+margin_bottom = 100.0
+icon = ExtResource( 16 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="audiotoggle" type="Button" parent="."]
+material = ExtResource( 8 )
+margin_left = -12.0
+margin_top = 650.0
+margin_right = 32.0
+margin_bottom = 688.0
+rect_scale = Vector2( 2, 2 )
+custom_styles/focus = SubResource( 28 )
+icon = ExtResource( 26 )
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BadMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 19 )
+volume_db = -15.0
+
+[node name="tidalwave" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 24 )
+volume_db = -15.0
+
+[node name="Objectives" type="Node" parent="."]
+
+[node name="startobjective" type="Sprite" parent="Objectives"]
+material = ExtResource( 8 )
+position = Vector2( 640, -1800 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 25 )
+
+[node name="objective" type="Label" parent="Objectives/startobjective"]
+margin_left = -287.0
+margin_top = -147.0
+margin_right = 861.0
+margin_bottom = 457.0
+rect_scale = Vector2( 0.5, 0.5 )
+custom_fonts/font = SubResource( 3 )
+text = "objective:
+produce 10,000,000 energy
+ to power the city"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="endobjective" type="Sprite" parent="Objectives"]
+material = ExtResource( 8 )
+position = Vector2( 640, -1800 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 25 )
+
+[node name="yoydidit" type="Label" parent="Objectives/endobjective"]
+margin_left = -287.0
+margin_top = -147.0
+margin_right = 861.0
+margin_bottom = 457.0
+rect_scale = Vector2( 0.5, 0.5 )
+custom_fonts/font = SubResource( 3 )
+text = "congratulations ! ! !
+
+you produced enough energy
+to power the city
+the people of the city
+can now rest easy
+
+"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Freeplay" type="Button" parent="Objectives/endobjective/yoydidit"]
+margin_left = 360.0
+margin_top = 500.0
+margin_right = 824.0
+margin_bottom = 586.0
+custom_styles/focus = SubResource( 4 )
+custom_fonts/font = SubResource( 5 )
+text = "Freeplay"
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="freeplayborder" type="Sprite" parent="Objectives/endobjective/yoydidit/Freeplay"]
+material = ExtResource( 8 )
+position = Vector2( 230, 45 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 27 )
+
+[node name="Label2" type="Label" parent="."]
+anchor_left = -0.793
+anchor_top = -1.613
+anchor_right = -0.793
+anchor_bottom = -1.613
+margin_left = -1484.96
+margin_top = -432.64
+margin_right = 205.04
+margin_bottom = 570.36
+custom_fonts/font = SubResource( 31 )
+text = "Energy Clicker"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="animation_finished" from="camanim" to="." method="_on_camanim_animation_finished"]
+[connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="Button" to="Menus" method="_on_Button_pressed"]
+[connection signal="pressed" from="Menus/Upgrades" to="Menus" method="_on_Upgrades_pressed"]
+[connection signal="pressed" from="Menus/Upgrades/ScrollContainer/VBoxContainer/lemonbattery" to="." method="_on_lemonbattery_pressed"]
+[connection signal="pressed" from="Menus/Upgrades/ScrollContainer/VBoxContainer/Tree" to="." method="_on_Tree_pressed"]
+[connection signal="pressed" from="Menus/Upgrades/ScrollContainer/VBoxContainer/Windmil" to="." method="_on_Windmil_pressed"]
+[connection signal="pressed" from="Menus/Upgrades/ScrollContainer/VBoxContainer/Watermil" to="." method="_on_Watermil_pressed"]
+[connection signal="pressed" from="Menus/Upgrades/ScrollContainer/VBoxContainer/Upgrade" to="." method="_on_Upgrade_pressed"]
+[connection signal="pressed" from="Menus/Upgrades/ScrollContainer/VBoxContainer/Lunar_Panel" to="." method="_on_Lunar_Panel_pressed"]
+[connection signal="pressed" from="Menus/Upgrades/ScrollContainer/VBoxContainer/Omegapanel" to="." method="_on_Omegapanel_pressed"]
+[connection signal="pressed" from="Menus/Upgrades/ScrollContainer/VBoxContainer/Death" to="." method="_on_Death_pressed"]
+[connection signal="timeout" from="Ticks" to="Ticks" method="_on_Ticks_timeout"]
+[connection signal="pressed" from="scorecheat" to="." method="_on_scorecheat_pressed"]
+[connection signal="pressed" from="audiotoggle" to="." method="_on_audiotoggle_pressed"]
+[connection signal="pressed" from="Objectives/endobjective/yoydidit/Freeplay" to="." method="_on_Freeplay_pressed"]
