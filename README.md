@@ -1,3 +1,4 @@
+# Play Here: https://bonemanseth.itch.io/energy-clicker
 Energy Clicker
 =====
 ![Le Logo](https://img.itch.zone/aW1nLzcyMTU1MTIucG5n/315x250%23c/ZAyNed.png)
